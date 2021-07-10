@@ -7,7 +7,11 @@ USER root
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
-RUN curl https://get.please.build | bash \
-    && source <(plz --completion_script)
+RUN wget https://get.please.build -O please-install.sh \
+    && chmod +x ./please-install.sh
+
+RUN su codespace -c "./please-install.sh"
 
 USER codespace
+
+RUN npm i -g standard commitizen cz-conventional-changelog @microsoft/rush
