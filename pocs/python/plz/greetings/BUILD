@@ -1,7 +1,7 @@
 python_library(
     name = "greetings",
     srcs = ["greetings.py"],
-    visibility = ["//pocs/plz_python/..."],
+    visibility = ["//pocs/python/plz/..."],
 )
 
 python_test(
