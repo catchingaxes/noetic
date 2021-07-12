@@ -1,0 +1,29 @@
+name: "Branch Please"
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+    paths:
+      - "*/python/**/*"
+      - "third_party/**/*"
+      - ".plzconfig"
+      - "BUILD"
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Please
+        uses: sagikazarmark/setup-please-action@v0.6.0
+        with:
+          save-logs: true
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+      - name: Build
+        run: plz build ./...
+      - name: Test
+        run: plz test ./...
