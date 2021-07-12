@@ -5,7 +5,7 @@
   "description": "POC of Probot fopr GH action integration for data collection",
   "author": "Martin Reynolds <catchingaxes@me.com>",
   "license": "ISC",
-  "homepage": "https://github.com/Catching Axes/noetic",
+  "homepage": "https://github.com/catchingaxes/noetic",
   "keywords": [
     "probot",
     "github",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "start": "probot run ./index.js",
+    "build": "",
     "test": "jest"
   },
   "dependencies": {
