@@ -1,0 +1,37 @@
+name: "PR Rush"
+
+on:
+  pull_request:
+    paths:
+      - "**/node/**/*"
+      - "common/**/*"
+      - "rush.json"
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: '16'
+      - name: Cache rush
+        id: cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: common/temp
+          key: ${{ runner.os }}-build-branch-${{ hashFiles('common/config/rush/repo-state.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-pr-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Rush install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: node common/scripts/install-run-rush.js install
+      - name: Build
+        run: node common/scripts/install-run-rush.js build
+      - name: Test
+        run: node common/scripts/install-run-rush.js test

@@ -1,0 +1,33 @@
+{
+  "name": "@noetic/poc-probot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "POC of Probot fopr GH action integration for data collection",
+  "author": "Martin Reynolds <catchingaxes@me.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/catchingaxes/noetic",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app"
+  ],
+  "scripts": {
+    "start": "probot run ./index.js",
+    "build": "",
+    "test": "jest"
+  },
+  "dependencies": {
+    "probot": "^11.0.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "nock": "^13.0.5",
+    "smee-client": "^1.2.2"
+  },
+  "engines": {
+    "node": ">= 10.13.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
