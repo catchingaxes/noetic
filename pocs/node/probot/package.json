@@ -2,7 +2,7 @@
   "name": "@noetic/poc-probot",
   "version": "1.0.0",
   "private": true,
-  "description": "POC of Probot fopr GH action integration for data collection",
+  "description": "POC of Probot for GH action integration for data collection",
   "author": "Martin Reynolds <catchingaxes@me.com>",
   "license": "ISC",
   "homepage": "https://github.com/catchingaxes/noetic",
