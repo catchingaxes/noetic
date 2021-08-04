@@ -1,4 +1,4 @@
-import random
+import secrets
 
 def greeting():
-    return random.choice(["Hello", "Bonjour", "Marhabaan"])
+    return secrets.choice(["Hello", "Bonjour", "Marhabaan"])
